@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap");
+@import "tailwindcss";
+
+:root {
+  --color-primary: #8b5cf6;
+  --color-accent: #c084fc;
+  --color-bg: #f3e8ff;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f3e8ff;
+  --color-text: #581c87;
+  --color-muted: #7c3aed;
+  --color-border: #d8b4fe;
+  --bg-soft: rgba(139, 92, 246, 0.08);
+}
+
+html.dark {
+  --color-bg: #1e1b4b;
+  --color-surface: #1e1b4b;
+  --color-surface-hover: #312e81;
+  --color-text: #e9d5ff;
+  --color-muted: #c4b5fd;
+  --color-border: #7c3aed;
+  --bg-soft: rgba(139, 92, 246, 0.16);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+html.dark body {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+}
+
+a {
+  color: inherit;
+}
+
+.text-modern {
+  color: var(--color-primary);
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+.card-modern {
+  border: 1px solid var(--color-border);
+  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.08);
+}
+
+.btn-modern {
+  background: linear-gradient(135deg, #c084fc 0%, #8b5cf6 50%, #7c3aed 100%);
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4), 0 0 20px rgba(192, 132, 252, 0.2);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 500ms;
+}
+
+.btn-modern:hover {
+  background: linear-gradient(135deg, #d946ef 0%, #a855f7 50%, #8b5cf6 100%);
+  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.6), 0 0 35px rgba(217, 70, 239, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-modern:hover::before {
+  left: 100%;
+}
+
+.btn-modern:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(139, 92, 246, 0.4);
+}
+
+.interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+}
+
+.transition-smooth {
+  transition: all 220ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+/* Logo theming for dark mode */
+.logo-text {
+  filter: none;
+  transition: filter 200ms ease;
+}
+
+html.dark .logo-text {
+  filter: invert(1) brightness(0.9);
+}
