@@ -13,8 +13,8 @@ function UserTripCardItem({ Trip }) {
           textQuery: Trip?.userSelection?.location?.label,
         });
 
-        if (result?.data?.places?.[0]?.photos?.[3]?.name) {
-          const photoUrl = PHOTO_REF_URL.replace("{NAME}", result.data.places[0].photos[3].name);
+        if (result?.data?.places?.[0]?.photos?.[1]?.name) {
+          const photoUrl = PHOTO_REF_URL.replace("{NAME}", result.data.places[0].photos[1].name);
           setPhotoUrl(photoUrl);
         }
       } catch (error) {
